@@ -13,6 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/introduction', 'introduction');
+Route::view('/filament', 'filament')->name('filament');
