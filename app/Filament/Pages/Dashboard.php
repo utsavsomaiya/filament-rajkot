@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Filament\Pages;
 
 use Closure;
@@ -8,7 +10,6 @@ use Illuminate\Support\Facades\Route;
 
 class Dashboard extends Page
 {
-
     protected static bool $shouldRegisterNavigation = false;
 
     protected static string $view = 'filament.pages.dashboard';
