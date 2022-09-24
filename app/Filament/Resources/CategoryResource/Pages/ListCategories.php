@@ -5,21 +5,16 @@ declare(strict_types=1);
 namespace App\Filament\Resources\CategoryResource\Pages;
 
 use App\Filament\Resources\CategoryResource;
-use Filament\Resources\Pages\ManageRecords;
-use Illuminate\Database\Eloquent\Builder;
+use Filament\Pages\Actions;
+use Filament\Resources\Pages\ListRecords;
 
-class ManageCategory extends ManageRecords
+class ListCategories extends ListRecords
 {
     protected static string $resource = CategoryResource::class;
 
-    public function getTableQuery(): Builder
+    protected function getActions(): array
     {
-        return static::getResource()::getEloquentQuery()->orderBy('id', 'desc');
-    }
-
-    public function getCreatedNotificationMessage(): string
-    {
-        return 'Category created successfully..';
+        return [Actions\CreateAction::make()];
     }
 
     public function isTableSelectionEnabled(): bool
@@ -31,4 +26,5 @@ class ManageCategory extends ManageRecords
     {
         return true;
     }
+
 }
