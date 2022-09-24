@@ -8,6 +8,7 @@ namespace Database\Seeders;
 
 use App\Models\Admin;
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -24,7 +25,8 @@ class DatabaseSeeder extends Seeder
         ]);
         $this->command->info('Admin created successfully.');
 
-        Category::factory(25)->create();
+        Category::factory(25)
+        ->has(Product::factory(random_int(2, 5))->productImage())->create();
         $this->command->info('Categories are created successfully');
     }
 }
